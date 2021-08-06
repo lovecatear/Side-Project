@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>snake</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    //貪食蛇 草稿
+    
+    //bar 換背景
+    //排行榜 => 不需要F5 遊戲可以重新
+    //音樂音效 =>太吵
+    //雙人遊玩 =>地圖太小
+    //調整 速度 長度 => 調整難度
+    //
+    
+</head>
+<body>
+    <script>
+        var snake = {
+            body: [{ x: 10, y: 10 }],
+            size: 3,
+            direct: { x: 0, y: -1 }
+        }
+        //蛇移動
+        // console.log(snake.body);
+        // console.log(typeof snake.body);
+        // console.log(typeof snake.body[0]);
+        // console.log(typeof snake.body[0].x);
+        // console.log(snake.body[0].x + snake.direct.x);
+        // console.log(snake.body[0].y + snake.direct.y); 
+        ///////型態有誤 下面修正
+        // snake.body.unshift([snake.body[0].x + snake.direct.x, snake.body[0].y + snake.direct.y]);
+        // console.log('unshift');
+        // console.log(snake);
+        // console.log('snake.body');
+        // console.log(snake.body);
+        // console.log('snake.body[0]');
+        // console.log(snake.body[0]);
+        // console.log('snake.body[1]');
+        // console.log(snake.body[1]);
+        // snake.body.pop();
+        // console.log('pop');
+        // console.log(snake.body.length);
+
+        //蛇轉向
+        // snake.direct.x = - snake.direct.x;
+        // console.log(snake.direct);  
+        // snake.direct.y = - snake.direct.y;
+        // console.log(snake.direct);  
+
+        //蛇脫皮
+        for (i = 0; i < 4; i++) {
+            var temp = {
+                x: snake.body[0].x + snake.direct.x,
+                y: snake.body[0].y + snake.direct.y
+            }
+            snake.body.unshift(temp);
+        }
+        for (i = 0; i < snake.body.length; i++) {
+            //console.log(snake.body[i]);
+        }
+        //一次增加一格 需要if就好 // 不過可以增加玩法?!
+        while (snake.body.length > snake.size) {
+            var temp = snake.body.pop();
+            //console.log('觀察temp');
+            //console.log(temp);
+        }
+        console.log('脫皮後蛇身');
+        for (i = 0; i < snake.body.length; i++) {
+            console.log(snake.body[i]);
+        }
+
+
+        //隨機目標 判斷是否為蛇身 
+        // var xxx=10;
+        // var eat;
+        // function putscore() {
+        //     eat = {
+        //         x: Math.floor(Math.random() * xxx),
+        //         y: Math.floor(Math.random() * xxx)
+        //     }
+        //     for(i=0; i<snake.body.length;i++)
+        //     {
+        //         if(snake.body[i].x==eat.x && snake.body[i].y==eat.y){putscore();}
+        //     }
+        // }
+        //putscore();
+        //console.log(eat);
+
+        //蛇吃到目標 蛇size+ 分數+ 重放蘋果    蛇size > 蛇body.length 不會脫皮
+        // var score = 0;
+        // function scoreup() {
+        //     snake.size += 1 ;
+        //     score +=1;
+        //     putscore();
+        // }
+
+        // scoreup();
+        // scoreup();
+        // console.log(snake.size);
+        // console.log(score);
+
+
+        //蛇死亡 牆壁 一定頭先碰到判定區
+        //console.log(snake.body[0].y);
+        // if(snake.body[0].y<0||snake.body[0].x<0||snake.body[0].y>20||snake.body[0].x<0){
+        //     alert('落命')
+        // }
+        //蛇死亡 身體 頭不需要判斷
+        // for(i=1;i<snake.body.length-1;i++)
+        // {
+        //     if(snake.body[i]==snake.body[0]){alert('落命');}
+        // }
+
+
+    </script>
+</body>
+
+</html>
